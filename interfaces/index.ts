@@ -5,6 +5,17 @@
 // import { User } from 'path/to/interfaces';
 
 export type User = {
-  id: number
-  name: string
+  id: number;
+  name: string;
+};
+
+export interface Article {
+  image: string;
+  category: string;
+  title: string;
+  author: string;
+  created_at: string;
+  content: string;
+  tags?: string[];
+  id: string;
 }

@@ -1,0 +1,69 @@
+.list-article-container {
+  display: flex;
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+  &__social {
+    width: 35%;
+    font-size: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    .btn {
+      width: 10rem;
+      text-align: center;
+    }
+  }
+}
+
+.list-article {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+  border-right: 1px solid $muted;
+  width: 65%;
+  @include respond(tab-port) {
+    width: 100%;
+    font-size: 1.7rem;
+    border-right: none;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  &__article {
+    width: 50%;
+    padding: 2.5rem;
+    line-height: 1.5;
+    min-height: 40rem;
+    &:nth-child(even) {
+      margin-top: 2rem;
+    }
+    hr {
+      background-color: $muted;
+      border: none;
+      height: 1px;
+    }
+    &__header {
+      display: flex;
+      span {
+        color: $muted;
+      }
+      &--category {
+        color: $muted;
+        font-style: italic;
+      }
+      img {
+        width: 30%;
+        max-height: 15rem;
+        object-fit: fill;
+        @include respond(phone) {
+          max-height: 10rem;
+        }
+      }
+      &__meta {
+        width: 70%;
+      }
+    }
+  }
+}

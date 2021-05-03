@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 2rem;
+
+  .logo {
+    font-size: 2.3rem;
+  }
+  &__left-menu {
+    justify-content: space-between;
+    width: 45rem;
+    &__links {
+      align-items: center;
+      justify-content: space-around;
+      width: 60%;
+    }
+  }
+  input {
+    width: 40%;
+    height: 30px;
+    border-color: $muted;
+    outline-color: $muted;
+    border-width: 1px;
+    padding-left: 5px;
+    transition: all 0.4s;
+    &:focus {
+      outline: none;
+      box-shadow: 1px 1px 1px;
+    }
+  }
+}

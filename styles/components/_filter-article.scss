@@ -1,0 +1,17 @@
+.article-filters {
+  padding-bottom: 1rem;
+  display: flex;
+  font-size: 1.5rem;
+  span:not(:first-child) {
+    margin-left: 10px;
+    color: $muted;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      color: $color-primary-black;
+    }
+  }
+  &__filter--active {
+    color: red !important;
+  }
+}

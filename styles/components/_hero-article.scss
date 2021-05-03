@@ -1,0 +1,50 @@
+.hero-article {
+  display: flex;
+  width: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.9);
+  height: 55rem;
+  color: white;
+  @include respond(phone) {
+    flex-direction: column;
+    height: 100%;
+  }
+  &__img {
+    opacity: 0.8;
+    width: 50%;
+    @include respond(phone) {
+      width: 100%;
+      height: 65rem;
+      opacity: 1;
+    }
+    img {
+      width: 100%;
+      min-height: 100%;
+      max-height: 100%;
+      object-fit: conain;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-left: 2px;
+    width: 50%;
+    font-size: 1.5rem;
+    @include respond(phone) {
+      width: 100%;
+      padding: 2rem;
+    }
+    &--category {
+      font-style: italic;
+    }
+    &--title {
+      text-transform: capitalize;
+    }
+    &--sub-title {
+      font-weight: 100;
+    }
+    .btn {
+      width: 10rem;
+    }
+  }
+}

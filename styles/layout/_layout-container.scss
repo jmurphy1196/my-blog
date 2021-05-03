@@ -1,0 +1,11 @@
+.layout-container {
+  padding: 1.5rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  @include respond(phone) {
+    padding: 1.5rem;
+  }
+}
