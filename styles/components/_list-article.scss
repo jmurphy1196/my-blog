@@ -9,6 +9,17 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    @include respond(phone) {
+      width: 60%;
+    }
+    input {
+      padding: 0.5rem;
+      border-color: $muted;
+      border-width: 1px;
+      &:focus {
+        outline: none;
+      }
+    }
     .btn {
       width: 10rem;
       text-align: center;
@@ -30,24 +41,61 @@
   .btn {
     width: 100%;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2rem;
   }
   &__article {
     width: 50%;
     padding: 2.5rem;
     line-height: 1.5;
     min-height: 40rem;
+    &--loading {
+      width: 50%;
+      padding: 2.5rem;
+      line-height: 1.5;
+      min-height: 40rem;
+      @include respond(phone) {
+        width: 100%;
+        &:nth-child(even) {
+          margin-top: 0rem;
+        }
+      }
+    }
     &:nth-child(even) {
       margin-top: 2rem;
+    }
+    @include respond(phone) {
+      width: 100%;
+      &:nth-child(even) {
+        margin-top: 0rem;
+      }
     }
     hr {
       background-color: $muted;
       border: none;
       height: 1px;
     }
+    &__content {
+      font-family: "Roboto-light";
+      &--loading {
+        height: 20rem;
+        background: linear-gradient(to right, #fafafa, lightgrey);
+        background-position: 2rem 2rem;
+        animation: loadingContent 0.8s infinite forwards;
+      }
+    }
     &__header {
       display: flex;
+      &--loading {
+        display: flex;
+      }
       span {
         color: $muted;
+      }
+      &--title {
+        cursor: pointer;
       }
       &--category {
         color: $muted;
@@ -55,14 +103,33 @@
       }
       img {
         width: 30%;
-        max-height: 15rem;
-        object-fit: fill;
+        max-height: 12rem;
+        object-fit: cover;
+        cursor: pointer;
+        border: 1px solid $muted;
         @include respond(phone) {
-          max-height: 10rem;
+          max-height: 15rem;
         }
+      }
+      &--post-image--loading {
+        background: linear-gradient(to right, #fafafa, lightgrey);
+        background-position: 2rem 2rem;
+        height: 10rem;
+        width: 30%;
       }
       &__meta {
         width: 70%;
+        &--loading {
+          width: 50%;
+          background: linear-gradient(to right, #fafafa, lightgrey);
+          background-position: 1rem 1rem;
+          height: 5rem;
+          animation: loadingCategory 0.8s infinite forwards;
+        }
+
+        &--loading {
+          width: 70%;
+        }
       }
     }
   }

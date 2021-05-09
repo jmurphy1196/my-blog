@@ -1,0 +1,11 @@
+.search-page__input {
+  display: none;
+  @include respond(phone) {
+    //only show the input on mobile devices
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border-width: 1px;
+  }
+}

@@ -1,13 +1,14 @@
 import dayjs from "dayjs";
 import Link from "next/link";
 import { Article } from "../interfaces";
+import { displayCategories } from "../utils/display";
 
 interface ArticleBrowseProps {
   article: Article;
 }
 
 const ArticleBrowse: React.FC<ArticleBrowseProps> = ({
-  article: { author, content, tags, title, created_at, image, category },
+  article: { author, content, title, created_at, image, categories, id },
 }) => {
   const MAX_CHARACTERS = 500;
   const displayContent =
@@ -19,19 +20,23 @@ const ArticleBrowse: React.FC<ArticleBrowseProps> = ({
       <div className='list-article__article__header capitalize'>
         <div className='list-article__article__header__meta'>
           <h4 className='list-article__article__header--category capitalize'>
-            {category}
+            {displayCategories(categories)}
           </h4>
-          <h3 className='list-article__article__header--post-title'>{title}</h3>
+          <h3 className='list-article__article__header--post-title'>
+            <Link href={`/blog/${id}`}>{title}</Link>
+          </h3>
           <span>
-            by <Link href=''>{author}</Link> on{" "}
+            by <Link href='/blog/8'>{author.name}</Link> on{" "}
             {dayjs(created_at).format("MM/DD/YYYY")}
           </span>
         </div>
-        <img
-          src={image}
-          alt=''
-          className='list-article__article__header--post-image'
-        />
+        <Link href={`/blog/${id}`}>
+          <img
+            src={`http://${process.env.NEXT_PUBLIC_STRAPI_URL}${image.url}`}
+            alt=''
+            className='list-article__article__header--post-image is-rounded'
+          />
+        </Link>
       </div>
       <div className='list-article__article__content mt-2'>
         <span>{displayContent}</span>

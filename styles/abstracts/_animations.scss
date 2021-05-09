@@ -1,0 +1,36 @@
+@keyframes spinning {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideIn {
+  to {
+    transform: translate(-80%, -3%);
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translate(-80%, -3%);
+  }
+  to {
+    transform: translate(30%, -3%);
+  }
+}
+
+@keyframes loadingContent {
+  10% {
+    background-position: 4rem 4rem;
+  }
+  100% {
+    background-position: 50rem 50rem;
+  }
+}
+@keyframes loadingCategory {
+  10% {
+    background-position: 1rem 1rem;
+  }
+  100% {
+    background-position: 35rem 35rem;
+  }
+}

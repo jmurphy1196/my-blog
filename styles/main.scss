@@ -1,14 +1,17 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
+@import "abstracts/animations";
 //components
 @import "components/navbar";
 @import "components/hero-article";
 @import "components/filter-article";
 @import "components/list-article";
 @import "components/main-article";
+@import "components/error-card";
 
 //layout
 @import "layout/layout-container";
+@import "layout/search_page";
 
 //base
 @import "base/base";

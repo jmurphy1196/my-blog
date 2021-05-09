@@ -10,6 +10,13 @@
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
+    input {
+      padding: 0.5rem;
+      border-width: 1px;
+      &:focus {
+        outline: none;
+      }
+    }
     .btn {
       width: 10rem;
       text-align: center;
@@ -29,6 +36,7 @@
   @include respond(phone) {
     width: 100%;
     border-right: none;
+    font-size: 2.2rem;
   }
   &__header {
     &--category {
@@ -46,12 +54,45 @@
   }
   &__content {
     line-height: 1.5;
+    pre {
+      margin-top: 2rem;
+      background-color: $color-primary-black;
+      color: white;
+    }
+    p {
+      display: flex;
+      &:not(:first-child) {
+        margin-top: 1.2rem;
+      }
+      figure {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 50%;
+          @include respond(phone) {
+            width: 100%;
+          }
+        }
+        figcaption {
+          background-color: rgba($color: #000000, $alpha: 0.5);
+          color: white;
+          width: 50%;
+          text-align: center;
+          transform: translateY(-100%);
+          @include respond(phone) {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
   &__figure {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     background-color: $color-primary-black;
     &__image {
       width: 100%;

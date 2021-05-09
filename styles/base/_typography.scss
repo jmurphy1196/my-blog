@@ -3,6 +3,11 @@
   src: url("/fonts/roboto/Roboto-Medium.ttf");
   font-style: medium;
 }
+@font-face {
+  font-family: "Roboto-light";
+  src: url("/fonts/roboto/Roboto-Light.ttf");
+  font-style: medium;
+}
 
 body {
   font-family: "Roboto";

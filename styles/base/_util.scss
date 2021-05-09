@@ -68,7 +68,23 @@
       $color-primary-black,
       $color-secondary-black
     );
+    &--loading {
+      background-color: $muted;
+      border: none;
+      color: $color-secondary-black;
+    }
     color: white;
+  }
+}
+
+.loading-icon {
+  animation: spinning 0.8s ease-in-out infinite;
+}
+
+input.pop-up {
+  transition: box-shadow 0.3s;
+  &:focus {
+    box-shadow: 1px 1px 1px;
   }
 }
 

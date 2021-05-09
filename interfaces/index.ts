@@ -9,13 +9,36 @@ export type User = {
   name: string;
 };
 
+interface Author {
+  id?: number;
+  name: string;
+}
+
+interface Category {
+  type: string;
+  id?: number;
+}
+
+export type Filter = "newest" | "popular";
+export type Categories = Category[];
+
 export interface Article {
-  image: string;
-  category: string;
+  image: {
+    url: string;
+    ext?: string;
+  };
+  categories: Categories;
   title: string;
-  author: string;
+  author: Author;
   created_at: string;
   content: string;
-  tags?: string[];
   id: string;
+  views?: number;
+}
+
+export interface AppState {
+  articleIds: number[];
+  amountOfArticles: number;
+  filter: "newest" | "popular";
+  articles: Article[];
 }
