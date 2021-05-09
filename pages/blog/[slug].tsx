@@ -84,7 +84,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
             </div>
             <figure className='main-article__figure mt-2'>
               <img
-                src={`http://${process.env.NEXT_PUBLIC_STRAPI_URL}${article.image.url}`}
+                src={`https://${process.env.NEXT_PUBLIC_STRAPI_URL}${article.image.url}`}
                 alt=''
                 className='main-article__figure__image'
               />

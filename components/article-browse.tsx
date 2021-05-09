@@ -32,7 +32,7 @@ const ArticleBrowse: React.FC<ArticleBrowseProps> = ({
         </div>
         <Link href={`/blog/${id}`}>
           <img
-            src={`http://${process.env.NEXT_PUBLIC_STRAPI_URL}${image.url}`}
+            src={`https://${process.env.NEXT_PUBLIC_STRAPI_URL}${image.url}`}
             alt=''
             className='list-article__article__header--post-image is-rounded'
           />
