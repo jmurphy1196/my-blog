@@ -4,7 +4,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
-        <Head></Head>
+        <Head>
+          <meta name='referrer' content='no-referrer' />
+        </Head>
         <body>
           <Main />
           <NextScript />
