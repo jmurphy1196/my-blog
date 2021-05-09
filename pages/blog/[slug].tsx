@@ -45,6 +45,11 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
         document.querySelectorAll("p img")
       );
       imageTags.forEach((image) => {
+        const httpsImageSrc = image.src.replace(
+          "http://144.126.216.200",
+          "https://mystrapiblog.xyz"
+        );
+        image.src = httpsImageSrc;
         const figureElement = document.createElement("figure");
         const figureCaptionElement = document.createElement("figcaption");
         figureCaptionElement.innerHTML = image.alt;
