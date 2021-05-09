@@ -5,7 +5,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <meta name='referrer' content='no-referrer' />
+          <meta name='referrer' content='unsafe-url' />
         </Head>
         <body>
           <Main />
