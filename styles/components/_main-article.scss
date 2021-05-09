@@ -11,6 +11,9 @@
     display: flex;
     flex-direction: column;
     input {
+      @include respond(phone) {
+        width: 30rem;
+      }
       padding: 0.5rem;
       border-width: 1px;
       &:focus {

@@ -11,7 +11,7 @@ import Input from "../../components/input";
 import { parseSearchField } from "../../utils/parse-search-field";
 
 interface SearchPageProps {
-  searchQuery: ParsedUrlQuery;
+  searchQuery?: ParsedUrlQuery;
 }
 
 const SearchPageWrapper: React.FC = () => {
@@ -21,7 +21,33 @@ const SearchPageWrapper: React.FC = () => {
   useEffect(() => {}, []);
 
   if (Object.keys(searchQuery).length < 1) {
-    return <></>;
+    return (
+      <Layout>
+        <Navbar
+          onSearchChange={(c, t) => {
+            router.push({
+              pathname: "/search",
+              query: { category: c, title: t },
+            });
+          }}
+        />
+        <Input
+          type='text'
+          className='search-page__input'
+          placeholder='search...'
+          rounded
+          onChange={(e) => {
+            const { categories: c, titles: t } = parseSearchField(
+              e.target.value
+            );
+            router.push({
+              pathname: "/search",
+              query: { category: c, title: t },
+            });
+          }}
+        />
+      </Layout>
+    );
   } else {
     return <SearchPage searchQuery={searchQuery} />;
   }
@@ -49,13 +75,15 @@ const SearchPage: React.FC<SearchPageProps> = ({ searchQuery }) => {
     skip: skip,
   });
   useEffect(() => {
-    if (searchQuery.category) {
-      if (typeof searchQuery.category === "object") {
-        //array of categories
-        setCategories([...searchQuery.category]);
-      } else {
-        //a single category
-        setCategories([searchQuery.category]);
+    if (searchQuery) {
+      if (searchQuery.category) {
+        if (typeof searchQuery.category === "object") {
+          //array of categories
+          setCategories([...searchQuery.category]);
+        } else {
+          //a single category
+          setCategories([searchQuery.category]);
+        }
       }
       if (searchQuery.title) {
         if (typeof searchQuery.title === "object") {
