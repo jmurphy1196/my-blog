@@ -30,13 +30,36 @@ const Navbar: React.FC<NavbarProps> = ({
   };
   const { setSearchField } = useActions();
   const goToPosts = () => {
-    if (router.pathname !== "/") {
-      router.push("/");
-    }
     const listArticleDiv: HTMLDivElement | null = document.querySelector(
       ".list-article-container"
     );
-    scrollToDiv(listArticleDiv);
+    if (listArticleDiv) {
+      scrollToDiv(listArticleDiv);
+    }
+  };
+  const handleMobileLinkClick = (link: string) => {
+    switch (link) {
+      case "home":
+        router.push("/");
+        break;
+      case "newsletter":
+        const newsLetterDiv: HTMLDivElement | null = document.querySelector(
+          ".newsletter"
+        );
+        scrollToDiv(newsLetterDiv);
+        return;
+      case "posts":
+        goToPosts();
+
+        break;
+      //not sure why this is counted as a fallthrough case look into it
+      //@ts-ignore
+      case "search":
+        router.push({ pathname: "/search", query: { title: "" } });
+
+      default:
+        break;
+    }
   };
   useEffect(() => {
     let inputTimer: any;
@@ -98,27 +121,6 @@ const Navbar: React.FC<NavbarProps> = ({
     };
   }, []);
 
-  const handleMobileLinkClick = (link: string) => {
-    switch (link) {
-      case "newsletter":
-        const newsLetterDiv: HTMLDivElement | null = document.querySelector(
-          ".newsletter"
-        );
-        scrollToDiv(newsLetterDiv);
-        return;
-      case "posts":
-        goToPosts();
-
-        break;
-      //not sure why this is counted as a fallthrough case look into it
-      //@ts-ignore
-      case "search":
-        router.push({ pathname: "/search", query: { title: "" } });
-
-      default:
-        break;
-    }
-  };
   return (
     <nav className='navbar'>
       <div className='logo flex center'>
