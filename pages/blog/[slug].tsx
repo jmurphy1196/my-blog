@@ -38,6 +38,16 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
   }
 
   useEffect(() => {
+    //increase article view count by 1
+    const existingView = localStorage.getItem(`article-id-${article.id}`);
+    if (!existingView) {
+      //update the view
+
+      //set item so the view will not get updated next time the user looks at the article
+      localStorage.setItem(`article-id-${article.id}`, "true");
+    } else {
+      console.log("This user has already viewed the article");
+    }
     const contentDiv = document.querySelector(".main-article__content");
     if (contentDiv) {
       contentDiv.innerHTML = mdParser.render(article.content);
