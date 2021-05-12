@@ -42,9 +42,19 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
     const existingView = localStorage.getItem(`article-id-${article.id}`);
     if (!existingView) {
       //update the view
-
-      //set item so the view will not get updated next time the user looks at the article
-      localStorage.setItem(`article-id-${article.id}`, "true");
+      fetch(
+        `https://${process.env.NEXT_PUBLIC_STRAPI_URL}/articles/viewcount/${article.id}`,
+        { method: "put" }
+      )
+        .then((response) => {
+          //set localstorage so that user will not update the view count on refresh or viewing it again
+          if (response.status === 200) {
+            localStorage.setItem(`article-id-${article.id}`, "viewed");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       console.log("This user has already viewed the article");
     }
