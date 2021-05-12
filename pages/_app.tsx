@@ -1,3 +1,4 @@
+import smoothscroll from "smoothscroll-polyfill";
 import { store } from "../redux/store";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
@@ -10,8 +11,7 @@ import "highlight.js/styles/dracula.css";
 const WrappedApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     (async () => {
-      const scrollsmooth = (await import("smoothscroll-polyfill")).default;
-      scrollsmooth.polyfill();
+      smoothscroll.polyfill();
     })();
   }, []);
 
